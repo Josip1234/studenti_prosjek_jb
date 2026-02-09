@@ -11,7 +11,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->alias([
+            'blokiraj.listu'=>\App\Http\Middleware\BlokirajListuStudenata::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

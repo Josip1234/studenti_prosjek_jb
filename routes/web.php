@@ -14,7 +14,7 @@ Route::get('/studenti/unos', function () {
 Route::prefix('studenti')->name('studenti.')->controller(StudentiController::class)->group(function(){
     Route::get('/unos','pokaziFormuZaUnos')->name('unos');
     Route::post('/unos','create')->name('unos');
-    Route::get('/popis','popisSvihStudenata')->name('popis');
+    Route::get('/popis','popisSvihStudenata')->name('popis')->middleware('blokiraj.listu');
     Route::get('/edit/{student}','dohvatiFormuZaAzuriranje')->name('azuriranje');
     Route::put('/{student}','update')->name('azuriraj');
     Route::delete('/{student}','brisiStudenta')->name('delete');
