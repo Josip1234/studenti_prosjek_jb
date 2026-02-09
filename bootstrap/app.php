@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'blokiraj.listu'=>\App\Http\Middleware\BlokirajListuStudenata::class,
         ]);
+         $middleware->trustProxies(at: '*');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
